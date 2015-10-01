@@ -1,0 +1,166 @@
+---
+title: "HW4"
+author: "Bryan Sauka"
+date: "September 30, 2015"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```
+#Question 1a)
+#using seq generates a sequence of numbers, in this case we are creating a vector that goes from 1 to 20 in increments of 1. the c() function combines the arguments to form a vector.
+c(seq(from=1, to=20, by=1))
+```
+
+```
+#Question 1b)
+#using seq generates a sequence of numbers, in this case we are creating a vector that starts at 20 and ends at 1, decreasing in increments of 1. the c() function combines the arguments to form a vector.
+c(seq(from=20, to=1, by=-1))
+```
+
+```
+#Question 1c)
+#this creates a vector that goes from 1 to 20 and then back down to 1 by manually combining all the numbers in the sequence.  
+c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1)
+```
+
+```
+#Question 1d)
+#assigns the vector (4,6,3) to the variable tmp
+tmp <- c(4,6,3)
+```
+
+```
+#Question 1e)
+#rep(x, times) is replicating the values in x the number of times listed. in this case we are replicating the vector (4,6,3) 10 times in order to achieve our goal of 10 occurrences of 4 
+rep(c(4,6,3), times=10)
+```
+
+```
+#Question 1f)
+#rep(x, times) is replicating the values in x the numbers of times listed. in this case we are replicating each element of the vector by the corresponding number of times in the other vector. for example, 4 is replicated 11 times, 6 is replicated 10 times, and 3 is replicated 10 times.
+rep(c(4,6,3),c(11,10,10))
+```
+
+```
+#Question 1g)
+#rep(x, times) is replicating the values in x the numbers of times listed. in this case we are replicating each element of the vector by the corresponding number of times in the other vector. for example, 4 is replicated 10 times, 6 is replicated 20 times, and 3 is replicated 30 times. 
+rep(c(4,6,3),c(10,20,30))
+
+```
+#Question 2)
+#creates a vector of values of exp(x)*cos(x) where x is a sequence of numbers running from 1 to 6 by 0.1. x is the variable for the sequence range. solve_x defines the formula we are trying to solve. solve_x then prints out the the results for each x in the sequence.
+x <- seq(from=3, to=6, by=.1)  
+solve_x <- exp(x)*cos(x)
+solve_x
+```
+
+```
+#Question 3a)
+#creates a vector with 2 sets of increasing exponents. x is the variable for the 1st set of exponents that range from 3 to 36 and increase by increments of 3. y is the variable for the 2nd set of exponents that range from 1 to 34 and increase by increments of 3. z is the variable for vector we are solving for. z then prints out the results for each x and y in the sequence.
+x <- seq(from=3, to=36, by=3)
+y <- seq(from=1, to=34, by=3)
+z <- rep(c(0.1^x*0.2^y))
+z
+```
+
+```
+#Question 3b)
+#creates a vector with 2 sets of increasing exponents. x is the variable for the 1st set of exponents that range from 1 to 25 and increase by increments of 1. y is the variable for the 2nd set of exponents that range from 1 to 25 and increase by increments of 1. z is the variable for vector we are solving for. z then prints out the results for each x and y in the sequence.
+x <- seq(from=1, to=25, by=1)
+y <- seq(from=1, to=25, by=1)
+z <- rep(c(2^x/y))
+z
+```
+
+```
+#Question 4a)
+#we are solving for the summation that ranges from 10 to 100 for the given formula. i is the variable that defines the range of the summation by using the seq() function we used earlier. solve_i is the variable that defines the formula. solve_i then prints out the results for each i in the sequence.
+i <- seq(from=10, to=100, by=1)
+solve_i <- (i^3 + 4*i^2) 
+solve_i
+```
+
+```
+#Question 4b)
+#we are solving for the summation that ranges from 1 to 25 for the given formula. i is the variable that defines the range of the summation by using the seq() function we used earlier. solve_i is the variable that defines the formula. solve_i then prints out the results for each i in the sequence.
+i <- seq(from=1, to=25, by=1)
+solve_i <- ((2^i/i) + (3^i/i^2))
+solve_i
+```
+
+```
+#Question 5a)
+#we use the paste function to create character vector of the word label. the word label will have a space after it followed by the corresponding # that ranges from 1-30. 
+paste("label ", 1:30, sep="")
+```
+
+```
+#Question 5b)
+#we use the paste function to create character vector of the word fn. the word fn will not have a space after it and will be followed by the corresponding # that ranges from 1-30. 
+paste("fn", 1:30, sep="")
+```
+
+```
+#Question 6a)
+#set.seed is an integer vector that contains the random number generator state. xVec is a variable that defines the x vector of random numbers with replacement from 0-999. yVec does the same thing only defines the y vector. i defines the sequence that will be used for the y variable index and ranges from 2-250 (for example, if i=2 then that represents the index 2 for the y vector). j does the same thing only for the x vector but ranges from 1 to 249 since x runs to n-1
+set.seed(50)
+xVec <- sample(0:999, 250, replace=T)
+yVec <- sample(0:999, 250, replace=T)
+i <- seq(from=2, to=250, by=1)
+j <- seq(from=1, to=249, by=1)
+rep(c(yVec[i] - xVec[j]))
+```
+
+```
+#Question 6b)
+#set.seed is an integer vector that contains the random number generator state. xVec is a variable that defines the x vector of random numbers with replacement from 0-999. yVec does the same thing only defines the y vector. i defines the sequence that will be used for the y variable index and ranges from 1-249 since y runs to n-1 (for example, if i=2 then that represents the index 2 for the y vector). j does the same thing only for the x vector but ranges from 2 to 250.
+set.seed(50)
+xVec <- sample(0:999, 250, replace=T)
+yVec <- sample(0:999, 250, replace=T)
+i <- seq(from=1, to=249, by=1)
+j <- seq(from=2, to=250, by=1)
+rep(c(sin(yVec[i])/cos(xVec[j])))
+```
+
+```
+#Question 6c)
+#set.seed is an integer vector that contains the random number generator state. xVec is a variable that defines the x vector of random numbers with replacement from 0-999. yVec does the same thing only defines the y vector. x1 defines the sequence that will be used for the 1st x index and ranges from 1-248 since x1 runs to n-2 (for example, if x1=2 then that represents the index 2 for the x vector). x2 does the same thing only for the 2nd x index but ranges from 2 to 249 since x2 runs to n-1. x3 does the same thing only for the 3rd x index but ranges from 3 to 250 since x3 runs to n.
+set.seed(50)
+xVec <- sample(0:999, 250, replace=T)
+x1 <- seq(from=1, to=248, by=1)
+x2 <- seq(from=2, to=249, by=1)
+x3 <- seq(from=3, to=250, by=1)
+rep(c(xVec[x1]+2*xVec[x2]-xVec[x3]))
+```
+
+```
+#Question 6d)
+#set.seed is an integer vector that contains the random number generator state. xVec is a variable that defines the x vector of random numbers with replacement from 0-999. i defines the sequence that will be used for the 1st x index and ranges from 1-249 since i runs to n-1 (for example, if x1=2 then that represents the index 2 for the x vector). j does the same thing only for the 2nd x index but ranges from 2 to 250 since j runs to j+1. 
+set.seed(50)
+xVec <- sample(0:999, 250, replace=T)
+i <- seq(from=1, to=249, by=1)
+j <- seq(from=2, to 250, by=1)
+rep(c(exp(-xVec[j])/(xVec[i]+10)))
+```
+
+```
+#Question 7a)
+#set.seed is an integer vector that contains the random number generator state. yVec is a variable that defines the y vector of random numbers with replacement from 0-999. y is a variable that defines the # of variables that in the y vector that are greater than 600. 
+set.seed(50)
+yVec <- sample(0:999, 250, replace=T)
+y <- length(yVec[yVec > 600])
+y
+```
+
+```
+#Question 8
+#cumprod() is the cumulative product of array elements. goal was to to use cumprod on the fractions that needed to be multiplied and then sum these results using cumsum(). ran out of time
+i <- seq(from=1, to=38, by=2)
+j <- seq(from=3, to=39, by=2)
+k <- cumprod(i/j)
+k
+```
